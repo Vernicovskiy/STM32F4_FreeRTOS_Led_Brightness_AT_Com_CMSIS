@@ -27,10 +27,11 @@ void USART_Send(char chr)
 
 }
 
+
+
 void USART_Send_Data(uint8_t data)
 {
 			while(!(USART1->SR & USART_SR_TC));
-			char buffer[10];
 			USART1->DR = data;
 
 }
@@ -43,5 +44,24 @@ void USART_Send_String(char* str)
 			USART_Send(str[i++]);
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
