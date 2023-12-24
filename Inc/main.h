@@ -6,7 +6,7 @@
 #include "USART_Init.h"
 #include "TIM2_PWM_Init.h"
 #include "string.h"
-#include  "stdio.h"
+#include "stdio.h"
 #include "CMD_Parse_Brightness.h"
 //#include "CMD_Parse_Brightness.h"
 

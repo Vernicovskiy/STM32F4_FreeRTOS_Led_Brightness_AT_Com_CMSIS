@@ -65,7 +65,7 @@ void vTaskAT (void *argument)
 			{
 				if((strncmp(linearBuffer,CMD_PREFIX_AT,strlen(CMD_PREFIX_AT)) && strncmp(linearBuffer,CMD_PREFIX_at,strlen(CMD_PREFIX_at))) == 0 )
 				{
-					sprintf(Response_Buffer,"%s%d", CMD_RESPONSE,a);
+					sprintf(Response_Buffer,"%s%d", CMD_RESPONSE,TIM2->CCR1);
 					USART_Send_String(Response_Buffer);
 				}
 				brightness = CMD_Parse_Brightness(linearBuffer);
