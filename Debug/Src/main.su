@@ -1,4 +1,4 @@
 ../Src/main.c:9:5:main	16	static
 ../Src/main.c:31:6:vTaskLed	24	static,ignoring_inline_asm
 ../Src/main.c:49:6:vTaskAT	40	static,ignoring_inline_asm
-../Src/main.c:81:7:USART1_IRQHandler	16	static,ignoring_inline_asm
+../Src/main.c:89:7:USART1_IRQHandler	16	static,ignoring_inline_asm

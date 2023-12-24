@@ -48,10 +48,11 @@ void vTaskLed (void *argument)
 
 void vTaskAT (void *argument)
 {
-	char cmdBuffer[CMD_QUEUE_SIZE];
+	char Response_Buffer[CMD_QUEUE_SIZE];
 	static char linearBuffer[CMD_QUEUE_SIZE]; // Declare linear
 	int16_t brightness;
 	char data;
+	static int a = 255;
 	uint32_t linearIndex = 0;
 	while(1)
 	{
@@ -62,19 +63,26 @@ void vTaskAT (void *argument)
 			linearIndex = (linearIndex + 1) % CMD_QUEUE_SIZE;
 			if(data == '\n')
 			{
+				if((strncmp(linearBuffer,CMD_PREFIX_AT,strlen(CMD_PREFIX_AT)) && strncmp(linearBuffer,CMD_PREFIX_at,strlen(CMD_PREFIX_at))) == 0 )
+				{
+					sprintf(Response_Buffer,"%s%d", CMD_RESPONSE,a);
+					USART_Send_String(Response_Buffer);
+				}
 				brightness = CMD_Parse_Brightness(linearBuffer);
 				if (brightness<=255 && brightness>=0){
 				xQueueSend(xLedQueue,&brightness,0);
 				}
-				//USART_Send_String(brightness);
+
 
 				linearIndex = 0;
+
 			}
+			//xQueueReset(xCmdQueue);
 		}
 		asm("NOP");
 	}
 
-
+		vTaskDelay(10);
  }
 }
 
