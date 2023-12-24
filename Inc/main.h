@@ -14,7 +14,7 @@
 #define CMD_LEN 8 // Максимальная длина команды
 #define LED_QUEUE_SIZE 10 // Размер очереди для яркости
 #define CMD_RESPONSE "luminance=" // Ответ на команду
-#define CMD_QUEUE_SIZE 10 // Размер очереди для яркости
+#define CMD_QUEUE_SIZE 11 // Размер очереди для яркости
 
 xQueueHandle xCmdQueue;
 xQueueHandle xLedQueue;

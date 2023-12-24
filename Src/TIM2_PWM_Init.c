@@ -12,9 +12,9 @@ void TIM2_PWM_Init(void) {
 		// Установка предделителя таймера TIM2
 		TIM2->PSC = 1600-1;
 		// Установка периода таймера TIM2
-		TIM2->ARR = 100-1;
+		TIM2->ARR = 255-1;
 		// Установка коэффициента заполнения таймера TIM2
-		TIM2->CCR1 = 255-1;
+		TIM2->CCR1 = 0;
 		// Включение канала 1 таймера TIM2 в режиме PWM
 		TIM2->CCMR1 |= TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2; // Output Compare 1 mode 110: PWM mode 1 - In upcounting
 		TIM2->CCER |= TIM_CCER_CC1E; // Capture/Compare 1 output enable

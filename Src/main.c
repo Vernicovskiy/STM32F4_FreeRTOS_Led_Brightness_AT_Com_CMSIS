@@ -50,7 +50,7 @@ void vTaskAT (void *argument)
 {
 	char cmdBuffer[CMD_QUEUE_SIZE];
 	static char linearBuffer[CMD_QUEUE_SIZE]; // Declare linear
-	uint8_t brightness;
+	int16_t brightness;
 	char data;
 	uint32_t linearIndex = 0;
 	while(1)
@@ -60,11 +60,13 @@ void vTaskAT (void *argument)
 		if(xQueueReceive(xCmdQueue, &data, portMAX_DELAY) == pdTRUE){
 			linearBuffer[linearIndex] = data;
 			linearIndex = (linearIndex + 1) % CMD_QUEUE_SIZE;
-			if(data == '5')
+			if(data == '\n')
 			{
 				brightness = CMD_Parse_Brightness(linearBuffer);
+				if (brightness<=255 && brightness>=0){
 				xQueueSend(xLedQueue,&brightness,0);
-				USART_Send_String(brightness);
+				}
+				//USART_Send_String(brightness);
 
 				linearIndex = 0;
 			}
