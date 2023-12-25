@@ -29,23 +29,23 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  12 .comment      00000043  00000000  00000000  00020088  2**0
                   CONTENTS, READONLY
- 13 .debug_info   00006e88  00000000  00000000  000200cb  2**0
+ 13 .debug_info   00006e7d  00000000  00000000  000200cb  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_abbrev 00001622  00000000  00000000  00026f53  2**0
+ 14 .debug_abbrev 00001611  00000000  00000000  00026f48  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 00000548  00000000  00000000  00028578  2**3
+ 15 .debug_aranges 00000548  00000000  00000000  00028560  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_rnglists 000003e1  00000000  00000000  00028ac0  2**0
+ 16 .debug_rnglists 000003e1  00000000  00000000  00028aa8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  0000f4f1  00000000  00000000  00028ea1  2**0
+ 17 .debug_macro  0000f4f1  00000000  00000000  00028e89  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00007a01  00000000  00000000  00038392  2**0
+ 18 .debug_line   00007a01  00000000  00000000  0003837a  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    0005b375  00000000  00000000  0003fd93  2**0
+ 19 .debug_str    0005b375  00000000  00000000  0003fd7b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .debug_frame  000018b0  00000000  00000000  0009b108  2**2
+ 20 .debug_frame  000018b0  00000000  00000000  0009b0f0  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 21 .debug_line_str 00000062  00000000  00000000  0009c9b8  2**0
+ 21 .debug_line_str 00000062  00000000  00000000  0009c9a0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -6859,9 +6859,9 @@ int main(void)
  80026f4:	2000406c 	.word	0x2000406c
 
 080026f8 <vTaskLed>:
+	}
 }
 
-//---------------------------------------------------------------
 
 void vTaskLed (void *argument)
 {
@@ -6914,16 +6914,15 @@ void vTaskAT (void *argument)
  800273c:	af00      	add	r7, sp, #0
  800273e:	6078      	str	r0, [r7, #4]
 	char Response_Buffer[CMD_QUEUE_SIZE];
-	static char linearBuffer[CMD_QUEUE_SIZE]; // Declare linear
+	static char linearBuffer[CMD_QUEUE_SIZE]; 
 	int16_t brightness;
 	char data;
-	static int a = 255;
 	uint32_t linearIndex = 0;
  8002740:	2300      	movs	r3, #0
  8002742:	61fb      	str	r3, [r7, #28]
 	while(1)
 	{
-		if(uxQueueMessagesWaiting(xCmdQueue) != 0)   // Check queue
+		if(uxQueueMessagesWaiting(xCmdQueue) != 0)  
  8002744:	4b34      	ldr	r3, [pc, #208]	; (8002818 <vTaskAT+0xe0>)
  8002746:	681b      	ldr	r3, [r3, #0]
  8002748:	4618      	mov	r0, r3
@@ -7028,7 +7027,7 @@ void vTaskAT (void *argument)
  800280c:	61fb      	str	r3, [r7, #28]
 
 			}
-			//xQueueReset(xCmdQueue);
+		
 		}
 		asm("NOP");
  800280e:	bf00      	nop
@@ -7037,7 +7036,7 @@ void vTaskAT (void *argument)
 		vTaskDelay(10);
  8002810:	200a      	movs	r0, #10
  8002812:	f7ff f865 	bl	80018e0 <vTaskDelay>
-		if(uxQueueMessagesWaiting(xCmdQueue) != 0)   // Check queue
+		if(uxQueueMessagesWaiting(xCmdQueue) != 0)  
  8002816:	e795      	b.n	8002744 <vTaskAT+0xc>
  8002818:	20004068 	.word	0x20004068
  800281c:	20004070 	.word	0x20004070
@@ -7061,7 +7060,7 @@ void vTaskAT (void *argument)
  800283e:	2300      	movs	r3, #0
  8002840:	607b      	str	r3, [r7, #4]
 
-		    /* We have not woken a task at the start of the ISR. */
+
 
 			if((USART1->SR & USART_SR_RXNE) && (USART1->CR1 & USART_CR1_RXNEIE))
  8002842:	4b14      	ldr	r3, [pc, #80]	; (8002894 <USART1_IRQHandler+0x5c>)

@@ -26,7 +26,6 @@ int main(void)
 	}
 }
 
-//---------------------------------------------------------------
 
 void vTaskLed (void *argument)
 {
@@ -49,14 +48,13 @@ void vTaskLed (void *argument)
 void vTaskAT (void *argument)
 {
 	char Response_Buffer[CMD_QUEUE_SIZE];
-	static char linearBuffer[CMD_QUEUE_SIZE]; // Declare linear
+	static char linearBuffer[CMD_QUEUE_SIZE]; 
 	int16_t brightness;
 	char data;
-	static int a = 255;
 	uint32_t linearIndex = 0;
 	while(1)
 	{
-		if(uxQueueMessagesWaiting(xCmdQueue) != 0)   // Check queue
+		if(uxQueueMessagesWaiting(xCmdQueue) != 0)  
 		{
 		if(xQueueReceive(xCmdQueue, &data, portMAX_DELAY) == pdTRUE){
 			linearBuffer[linearIndex] = data;
@@ -77,7 +75,7 @@ void vTaskAT (void *argument)
 				linearIndex = 0;
 
 			}
-			//xQueueReset(xCmdQueue);
+		
 		}
 		asm("NOP");
 	}
@@ -90,7 +88,7 @@ void vTaskAT (void *argument)
 	{
 		BaseType_t xHigherPriorityTaskWoken = pdFALSE;
 
-		    /* We have not woken a task at the start of the ISR. */
+
 
 			if((USART1->SR & USART_SR_RXNE) && (USART1->CR1 & USART_CR1_RXNEIE))
 			{

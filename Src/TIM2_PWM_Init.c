@@ -1,9 +1,9 @@
 #include "TIM2_PWM_Init.h"
 
 void TIM2_PWM_Init(void) {
-		// Включение тактирования TIM1
+		// Включение тактирования TIM2
 		RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
-		// Настройка вывода PA8 в режим альтернативной функции AF1 (TIM2_CH1)
+
 		RCC->AHB1ENR |= RCC_AHB1ENR_GPIOAEN; //Тактирование на порт A
 		GPIOA->MODER &= ~GPIO_MODER_MODER5; // очистили режим для нужного пина
 		GPIOA->MODER |= GPIO_MODER_MODER5_1;

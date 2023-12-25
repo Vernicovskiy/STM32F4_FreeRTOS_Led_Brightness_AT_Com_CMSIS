@@ -1296,7 +1296,6 @@ Discarded input sections
  .data          0x0000000000000000        0x0 ./Src/main.o
  .bss           0x0000000000000000        0x0 ./Src/main.o
  .bss.rxIndex   0x0000000000000000        0x1 ./Src/main.o
- .data.a.0      0x0000000000000000        0x4 ./Src/main.o
  .debug_macro   0x0000000000000000      0xaae ./Src/main.o
  .debug_macro   0x0000000000000000       0x2e ./Src/main.o
  .debug_macro   0x0000000000000000       0x28 ./Src/main.o
@@ -2321,7 +2320,7 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .bss.xLedQueue
                 0x000000002000406c        0x4 ./Src/main.o
                 0x000000002000406c                xLedQueue
- .bss.linearBuffer.1
+ .bss.linearBuffer.0
                 0x0000000020004070        0xb ./Src/main.o
  *fill*         0x000000002000407b        0x1 
  .bss.__sbrk_heap_end
@@ -2467,7 +2466,7 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .comment       0x0000000000000043       0x44 ./Src/main.o
  .comment       0x0000000000000043       0x44 ./Src/sysmem.o
 
-.debug_info     0x0000000000000000     0x6e88
+.debug_info     0x0000000000000000     0x6e7d
  .debug_info    0x0000000000000000      0x537 ./CMSIS/src/system_stm32f4xx.o
  .debug_info    0x0000000000000537      0x918 ./FreeRTOS/src/freertos.o
  .debug_info    0x0000000000000e4f      0x4d5 ./FreeRTOS/src/heap_4.o
@@ -2479,11 +2478,11 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_info    0x0000000000005725      0x2e8 ./Src/GPIO_Init.o
  .debug_info    0x0000000000005a0d      0x3f6 ./Src/TIM2_PWM_Init.o
  .debug_info    0x0000000000005e03      0x93e ./Src/USART_Init.o
- .debug_info    0x0000000000006741      0x5bc ./Src/main.o
- .debug_info    0x0000000000006cfd      0x168 ./Src/sysmem.o
- .debug_info    0x0000000000006e65       0x23 ./Startup/startup_stm32f401retx.o
+ .debug_info    0x0000000000006741      0x5b1 ./Src/main.o
+ .debug_info    0x0000000000006cf2      0x168 ./Src/sysmem.o
+ .debug_info    0x0000000000006e5a       0x23 ./Startup/startup_stm32f401retx.o
 
-.debug_abbrev   0x0000000000000000     0x1622
+.debug_abbrev   0x0000000000000000     0x1611
  .debug_abbrev  0x0000000000000000      0x11a ./CMSIS/src/system_stm32f4xx.o
  .debug_abbrev  0x000000000000011a      0x16f ./FreeRTOS/src/freertos.o
  .debug_abbrev  0x0000000000000289      0x21d ./FreeRTOS/src/heap_4.o
@@ -2495,9 +2494,9 @@ LOAD C:/ST/STM32CubeIDE_1.13.2/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_abbrev  0x0000000000001048       0xb5 ./Src/GPIO_Init.o
  .debug_abbrev  0x00000000000010fd       0xb5 ./Src/TIM2_PWM_Init.o
  .debug_abbrev  0x00000000000011b2      0x1cd ./Src/USART_Init.o
- .debug_abbrev  0x000000000000137f      0x1d5 ./Src/main.o
- .debug_abbrev  0x0000000000001554       0xbc ./Src/sysmem.o
- .debug_abbrev  0x0000000000001610       0x12 ./Startup/startup_stm32f401retx.o
+ .debug_abbrev  0x000000000000137f      0x1c4 ./Src/main.o
+ .debug_abbrev  0x0000000000001543       0xbc ./Src/sysmem.o
+ .debug_abbrev  0x00000000000015ff       0x12 ./Startup/startup_stm32f401retx.o
 
 .debug_aranges  0x0000000000000000      0x548
  .debug_aranges
